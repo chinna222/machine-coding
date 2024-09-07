@@ -60,13 +60,14 @@ input {
 
 .highlights {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   grid-auto-flow: row;
   row-gap: 1rem;
   column-gap: 10px;
+  margin-top: 20px;
 }
 
-.highlights div {
+.highlights > div {
   height: 200px;
   display: grid;
   align-items: center;
@@ -74,4 +75,24 @@ input {
   background-color: #5e827f;
   border-radius: 20px;
   padding: 16px;
+}
+
+.highlight {
+  text-align: center;
+}
+
+.quick-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.quick-info > div {
+  padding: 10px;
+}
+
+.weather-icon {
+  height: 25%;
+  background-repeat: no-repeat !important;
+  background-position: center center !important;
 }
