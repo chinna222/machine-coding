@@ -1,0 +1,12 @@
+.rating-container {
+  max-width: 300px;
+  margin: auto;
+}
+
+input {
+  display: none;
+}
+
+i {
+  color: #6b6b6b;
+}
