@@ -1,11 +1,19 @@
 const stars = document.querySelectorAll("i");
 
-stars.forEach((star, index) => {
-  star.addEventListener("mouseover", () => getStarColor(star, index));
-  star.addEventListener("click", () => {
-    onClickStar(star, index);
+function handleMouseOver(event) {
+  const star = event.currentTarget;
+  const index = Array.from(stars).indexOf(star);
+  getStarColor(star, index);
+}
+
+function addEventListeners() {
+  stars.forEach((star, index) => {
+    star.addEventListener("mouseover", handleMouseOver);
+    star.addEventListener("click", () => {
+      onClickStar(star, index);
+    });
   });
-});
+}
 
 const getStarColor = (star, index) => {
   stars.forEach((starEle, ind) => {
@@ -28,6 +36,7 @@ starContainer.addEventListener("mouseleave", onMouseleave);
 
 const onClickStar = (star, index) => {
   stars.forEach((starEle, ind) => {
+    starEle.removeEventListener("mouseover", handleMouseOver);
     if (Number(star.id) > ind) {
       starEle.style.color = "gold";
     } else {
@@ -35,5 +44,6 @@ const onClickStar = (star, index) => {
     }
   });
   starContainer.removeEventListener("mouseleave", onMouseleave);
-  star.removeEventListener("mouseleave", getStarColor);
 };
+
+addEventListeners();
