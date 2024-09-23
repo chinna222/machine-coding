@@ -1,0 +1,25 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+input {
+  width: 250px;
+  padding: 8px 4px;
+  background-color: #fff;
+  border: 2px solid rgb(188, 205, 234);
+  border-radius: 4px;
+}
+
+.results-area {
+  width: 250px;
+  background-color: rgb(228, 235, 248);
+  margin-top: 5px;
+}
