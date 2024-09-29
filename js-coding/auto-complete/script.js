@@ -1,4 +1,5 @@
 const rootElement = document.getElementById("root");
+let results = [];
 
 const createElement = (type) => {
   return document.createElement(type);
@@ -10,12 +11,34 @@ const getResultsArea = () => {
   return resultsWrapper;
 };
 
-const handleInputChange = () => {};
+const getResults = async (query) => {
+  results = await fetch(`https://demo.dataverse.org/api/search?q=${query}`);
+  const data = await results.json();
+  return data;
+};
+
+const getDebouncedResults = (fn, delay) => {
+  let timer;
+  return function (...args) {
+    const context = this;
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      fn.apply(context, args);
+    }, delay);
+  };
+};
+
+const fetchResults = getDebouncedResults(getResults, 3000);
+
+const handleInputChange = (e) => {
+  const query = e.target.value;
+  fetchResults(query);
+};
 
 const getInput = () => {
   const input = createElement("input");
   input.placeholder = "Enter search string";
-  input.addEventListener("onchange", handleInputChange);
+  input.addEventListener("input", handleInputChange);
   return input;
 };
 
