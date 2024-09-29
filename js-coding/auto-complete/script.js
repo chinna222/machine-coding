@@ -1,6 +1,4 @@
 const rootElement = document.getElementById("root");
-let results = [];
-
 const obj = {
   value: [],
   get getValue() {
@@ -24,9 +22,9 @@ const updateResultsSection = () => {
   resultsArea.innerHTML = "";
   const results = obj.value;
   const ul = document.createElement("ul");
-  results.forEach((result, ind) => {
+  results.forEach((result) => {
     const li = document.createElement("li");
-    li.innerText = ind;
+    li.innerText = result.name;
     ul.appendChild(li);
   });
   resultsArea.appendChild(ul);
