@@ -1,6 +1,41 @@
 const rootElement = document.getElementById("root");
 let results = [];
 
+const obj = {
+  value: [],
+  get getValue() {
+    return this.value;
+  },
+  /**
+   * @param {string} val
+   */
+  set setValue(val) {
+    this.value = val;
+    this.valueListener(val);
+  },
+  valueListener: function () {},
+  addExternalListener: function (listener) {
+    this.valueListener = listener;
+  },
+};
+
+const updateResultsSection = () => {
+  const resultsArea = document.getElementById("results-area");
+  resultsArea.innerHTML = "";
+  const results = obj.value;
+  const ul = document.createElement("ul");
+  results.forEach((result, ind) => {
+    const li = document.createElement("li");
+    li.innerText = ind;
+    ul.appendChild(li);
+  });
+  resultsArea.appendChild(ul);
+};
+
+obj.addExternalListener(() => {
+  updateResultsSection();
+});
+
 const createElement = (type) => {
   return document.createElement(type);
 };
@@ -8,13 +43,14 @@ const createElement = (type) => {
 const getResultsArea = () => {
   const resultsWrapper = createElement("div");
   resultsWrapper.classList.add("results-area");
+  resultsWrapper.id = "results-area";
   return resultsWrapper;
 };
 
 const getResults = async (query) => {
   results = await fetch(`https://demo.dataverse.org/api/search?q=${query}`);
   const data = await results.json();
-  return data;
+  obj.setValue = data?.data?.items || [];
 };
 
 const getDebouncedResults = (fn, delay) => {
@@ -28,7 +64,7 @@ const getDebouncedResults = (fn, delay) => {
   };
 };
 
-const fetchResults = getDebouncedResults(getResults, 3000);
+const fetchResults = getDebouncedResults(getResults, 1000);
 
 const handleInputChange = (e) => {
   const query = e.target.value;
