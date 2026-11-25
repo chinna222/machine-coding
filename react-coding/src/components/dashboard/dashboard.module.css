@@ -1,0 +1,25 @@
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.header {
+  height: 72px;
+  flex-shrink: 0; /* default is flex-shrink: 1, flex-shrink: 0 prevents header from shrinking if dashboard children need more vertical space*/
+}
+
+.body {
+  display: flex;
+  flex: 1;
+}
+
+.sidebar {
+  width: 250px;
+  flex-shrink: 0;
+}
+
+.main {
+  flex: 1;
+  min-width: 0;
+}

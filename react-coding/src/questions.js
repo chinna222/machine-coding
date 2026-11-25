@@ -7,4 +7,9 @@ export const questions = [
     title: 'Undo / Redo',
     Component: lazy(() => import('./components/undo-redo/UndoRedo.jsx')),
   },
+  {
+    path: 'dashboard',
+    title: 'Dashboard',
+    Component: lazy(() => import('./components/dashboard/dashboard.jsx')),
+  },
 ]
