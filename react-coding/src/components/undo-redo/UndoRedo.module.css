@@ -1,5 +1,64 @@
+.question {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
 .container {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
+  justify-content: center;
+  max-width: 400px;
+  width: 100%;
+  padding: 24px;
+  gap: 16px;
+  box-shadow: 5px 5px 10px 5px #f1f1f1;
+  border-radius: 16px;
+}
+
+.container h2 {
+  text-align: center;
+}
+
+.counterDisplay {
+  text-align: center;
+  padding: 20px;
+  background: #e7e8eb;
+  border-radius: 10px;
+}
+
+button {
+  height: 40px;
+  padding: 10px;
+  border-radius: 10px;
+  min-width: 150px;
+}
+
+.actionContainer {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.historyContainer {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.horizontalLine {
+  border: 1px solid #b5b6b3;
+  margin: 10px;
+}
+
+.resetContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.undoRedo {
+  height: 40px;
+  padding: 10px;
 }

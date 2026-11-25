@@ -45,36 +45,39 @@ export default function UndoRedo() {
   )
 
   return (
-    <div className={styles.container}>
-      <h1>Counter App</h1>
-      <div>
-        <h5>Current Count: {count}</h5>
-      </div>
-      <div>
-        <button onClick={() => dispatch({ type: 'change', delta: 1 })}>
-          + Increment
-        </button>
-        <button onClick={() => dispatch({ type: 'change', delta: -1 })}>
-          - Decrement
-        </button>
-      </div>
-      <div className={styles.horizontalLine} />
-      <div>
-        <button
-          onClick={() => dispatch({ type: 'undo' })}
-          disabled={!undoStack.length}
-        >
-          Undo
-        </button>
-        <button
-          onClick={() => dispatch({ type: 'redo' })}
-          disabled={!redoStack.length}
-        >
-          Redo
-        </button>
-      </div>
-      <div>
-        <button onClick={() => dispatch({ type: 'reset' })}>Reset</button>
+    <div className={styles.question}>
+      <div className={styles.container}>
+        <h2>Counter App</h2>
+        <div className={styles.counterDisplay}>
+          <h5>Current Count: {count}</h5>
+        </div>
+        <div className={styles.actionContainer}>
+          <button onClick={() => dispatch({ type: 'change', delta: 1 })}>
+            + Increment
+          </button>
+          <button onClick={() => dispatch({ type: 'change', delta: -1 })}>
+            - Decrement
+          </button>
+        </div>
+        <div className={styles.horizontalLine} />
+        <div className={styles.historyContainer}>
+          <button
+            onClick={() => dispatch({ type: 'undo' })}
+            disabled={!undoStack.length}
+          >
+            Undo
+          </button>
+          <button
+            onClick={() => dispatch({ type: 'redo' })}
+            disabled={!redoStack.length}
+          >
+            Redo
+          </button>
+        </div>
+        <div className={styles.resetContainer}>
+          <div className={styles.undoRedo}>Undo: {undoStack.length} | Redo: {redoStack.length}</div>
+          <button onClick={() => dispatch({ type: 'reset' })}>Reset</button>
+        </div>
       </div>
     </div>
   )
