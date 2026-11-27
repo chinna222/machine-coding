@@ -1,6 +1,7 @@
 import React from 'react'
 import Header from './components/Header/Header'
 import styles from './dashboard.module.css'
+import ProductGrid from './components/ProductGrid/ProductGrid'
 function Dashboard() {
     return (
         <div className={styles.dashboard}>
@@ -14,7 +15,7 @@ function Dashboard() {
                 </aside>
 
                 <main className={styles.main}>
-                    Main Content
+                    <ProductGrid />
                 </main>
             </div>
         </div>

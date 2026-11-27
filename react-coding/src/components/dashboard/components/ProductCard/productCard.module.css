@@ -1,0 +1,101 @@
+.image {
+  width: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+  padding: 16px;
+}
+
+.content button {
+  margin-top: auto;
+}
+
+.category {
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgb(100, 116, 139);
+}
+
+.name {
+  font-size: 18px;
+  font-weight: 600;
+  color: rgb(15, 23, 42);
+}
+
+.price {
+  font-size: 16px;
+  font-weight: 700;
+  color: rgb(15, 23, 42);
+  margin-bottom: 12px;
+}
+
+.button {
+  padding: 10px 14px;
+  border: none;
+  border-radius: 10px;
+  background-color: rgb(15, 23, 42);
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background-color 150ms ease,
+    transform 100ms ease;
+}
+
+.button:hover {
+  background-color: rgb(51, 65, 85);
+}
+
+.button:active {
+  transform: scale(0.97);
+}
+
+.button:focus-visible {
+  outline: 2px solid rgb(59, 130, 246);
+  outline-offset: 2px;
+}
+
+.buttonAdded {
+  background-color: rgb(22, 163, 74);
+}
+
+.buttonAdded:hover {
+  background-color: rgb(21, 128, 61);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 16px;
+  overflow: hidden;
+  background-color: rgb(240, 244, 247);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition:
+    transform 150ms ease,
+    box-shadow 150ms ease;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .button {
+    transition: none;
+  }
+
+  .card:hover,
+  .card:focus-within {
+    transform: none;
+  }
+}
