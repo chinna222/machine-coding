@@ -5,9 +5,7 @@ import ProductGrid from './components/ProductGrid/ProductGrid'
 function Dashboard() {
     return (
         <div className={styles.dashboard}>
-            <header className={styles.header}>
-                Header
-            </header>
+            <Header />
 
             <div className={styles.body}>
                 <aside className={styles.sidebar}>
